@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-text bg-background;
+  }
+  h1 {
+    @apply text-5xl sm:text-6xl font-light leading-tight sm:leading-[66px] tracking-tight text-left;
+  }
+
+  h2 {
+    @apply text-3xl sm:text-4xl font-medium leading-normal sm:leading-[46.8px] text-left;
+  }
+
+  h3 {
+    @apply text-2xl font-medium leading-[34px];
+  }
+  h4 {
+    @apply text-lg font-medium leading-[26px];
+  }
+
+  .body_large {
+    @apply text-lg sm:text-xl font-normal leading-[30px];
+  }
+
+  .body_normal {
+    @apply text-base font-normal leading-6;
+  }
+
+  .body_small {
+    @apply text-sm font-normal leading-5;
+  }
+
+  .caption {
+    @apply text-xs font-extrabold leading-5 tracking-widest;
+  }
+
+  .over_line {
+    @apply font-semibold uppercase text-base leading-6 tracking-wider;
+  }
+}
+
+@layer components {
+  a {
+    @apply block;
+    &:hover {
+      @apply underline underline-offset-auto   hover:text-secondary;
+    }
+  }
+  .btn-primary {
+    @apply flex gap-1 rounded text-lg font-normal leading-5 transition duration-200;
+
+    @apply px-6 py-3 bg-accent text-background opacity-100;
+
+    @apply sm:px-4 sm:py-2 sm:text-base;
+
+    &:hover {
+      @apply bg-[#fa9b7e];
+    }
+
+    &:active {
+      @apply bg-[#f65b2b];
+    }
+
+    &:focus {
+      @apply bg-[#f87a53] outline outline-4 outline-[#31393d];
+    }
+
+    &:disabled {
+      @apply bg-[#d8dde0]  cursor-not-allowed;
+    }
+  }
+  .btn-secondary {
+    @apply flex gap-1 rounded text-lg font-normal leading-5 transition duration-200;
+
+    @apply px-4 py-2 bg-primary text-background opacity-100;
+
+    &:hover {
+      @apply bg-secondary;
+    }
+
+    &:active {
+      @apply bg-primary;
+    }
+
+    &:focus {
+      @apply bg-primary outline outline-4 outline-secondary;
+    }
+
+    &:disabled {
+      @apply bg-[#d8dde0] cursor-not-allowed;
+    }
+  }
+}
+
+.container {
+  @apply max-w-[1161px]  m-auto p-6 md:p-8 lg:p-10;
+}
