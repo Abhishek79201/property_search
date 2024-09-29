@@ -1,406 +1,168 @@
-// 'use client'
-// import React from 'react'
-// import location from '@/app/assets/location.svg'
-// import map from '@/app/assets/map.svg'
-// const FilterBar = () => {
-//   return (
-//     <section className='mt-10 md:mt-12 xl:mt-16 flex gap-2 items-center justify-between '>
-//       <div className='relative flex items-center '>
-//         <span className='absolute left-3 text-muted'>
-//           <img src={location.src} />
-//         </span>
-//         <input
-//           type='text'
-//           placeholder='State, City or Postal Code'
-//           className='pl-10 pr-4 py-2  w-[380px] rounded-[4px] border border-muted focus:border-primary focus:ring-primary focus:ring-1 text-base text-text'
-//         />
-//       </div>
-
-//       <select
-//         defaultValue='buy'
-//         className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full'
-//       >
-//         <option value='buy'>Buy</option>
-//         <option value='rent'>Rent</option>
-//       </select>
-
-//       <select
-//         defaultValue='type'
-//         className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full'
-//       >
-//         <option value='house'>House</option>
-//         <option value='apartment'>Apartment</option>
-//         <option value='land'>Land</option>
-//       </select>
-
-//       <select
-//         defaultValue='price'
-//         className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full'
-//       >
-//         <option value='low'>Low to High</option>
-//         <option value='high'>High to Low</option>
-//       </select>
-
-//       <select
-//         defaultValue='area'
-//         className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full'
-//       >
-//         <option value='small'>Small to Large</option>
-//         <option value='large'>Large to Small</option>
-//       </select>
-
-//       <select
-//         defaultValue='rooms'
-//         className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full'
-//       >
-//         <option value='1'>1 Room</option>
-//         <option value='2'>2 Rooms</option>
-//         <option value='3'>3 Rooms</option>
-//         <option value='4+'>4+ Rooms</option>
-//       </select>
-
-//       <button className='px-3 py-2 rounded-[4px] border  border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary'>
-//         <img src={map.src} className=' w-[130px]' />
-//       </button>
-//     </section>
-//   )
-// }
-
-// export default FilterBar
-// 'use client'
-// import React, { useState } from 'react'
-// import location from '@/app/assets/location.svg'
-// import map from '@/app/assets/map.svg'
-
-// const FilterBar = () => {
-//   const [filters, setFilters] = useState({
-//     location: '',
-//     purpose: 'buy',
-//     type: 'type',
-//     price: 'low',
-//     area: 'small',
-//     rooms: '1'
-//   })
-
-//   const handleInputChange = e => {
-//     const { name, value } = e.target
-//     setFilters(prevFilters => ({
-//       ...prevFilters,
-//       [name]: value
-//     }))
-//     console.log(filters)
-//   }
-
-//   return (
-//     <section className='mt-10 md:mt-14 xl:mt-16 flex flex-col lg:flex-row gap-2 items-center justify-between'>
-//       <div className='relative flex items-center w-full '>
-//         <span className='absolute left-3 text-muted'>
-//           <img src={location.src} alt='Location' />
-//         </span>
-//         <input
-//           type='text'
-//           name='location'
-//           placeholder='State, City or Postal Code'
-//           value={filters.location}
-//           onChange={handleInputChange}
-//           className='pl-10 pr-4 py-2 w-full rounded-[4px] border border-muted focus:border-primary focus:ring-primary focus:ring-1 text-base placeholder-secondary'
-//         />
-//       </div>
-//       <div className='flex w-full gap-2 flex-col sm:flex-row'>
-//         <div className='flex w-full gap-2'>
-//           <select
-//             name='purpose'
-//             value={filters.purpose}
-//             onChange={handleInputChange}
-//             className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full lg:w-[132px] '
-//           >
-//             <option value='buy'>Buy</option>
-//             <option value='rent'>Rent</option>
-//           </select>
-
-//           <select
-//             name='type'
-//             value={filters.type}
-//             onChange={handleInputChange}
-//             className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full lg:w-[132px]'
-//           >
-//             <option value='house'>House</option>
-//             <option value='apartment'>Apartment</option>
-//             <option value='land'>Land</option>
-//           </select>
-
-//           <select
-//             name='price'
-//             value={filters.price}
-//             onChange={handleInputChange}
-//             className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full lg:w-[132px]'
-//           >
-//             <option value='low'>Low to High</option>
-//             <option value='high'>High to Low</option>
-//           </select>
-//         </div>
-
-//         <div className='flex w-full gap-2'>
-//           <select
-//             name='area'
-//             value={filters.area}
-//             onChange={handleInputChange}
-//             className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full lg:w-[132px]'
-//           >
-//             <option value='small'>Small to Large</option>
-//             <option value='large'>Large to Small</option>
-//           </select>
-
-//           <select
-//             name='rooms'
-//             value={filters.rooms}
-//             onChange={handleInputChange}
-//             className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full lg:w-[132px]'
-//           >
-//             <option value='1'>1 Room</option>
-//             <option value='2'>2 Rooms</option>
-//             <option value='3'>3 Rooms</option>
-//             <option value='4+'>4+ Rooms</option>
-//           </select>
-
-//           <img
-//             src={map.src}
-//             className='p-[7px] rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary '
-//             alt='Map'
-//           />
-//         </div>
-//       </div>
-//     </section>
-//   )
-// }
-
-// export default FilterBar
-
-// 'use client'
-// import React, { useState } from 'react'
-// import location from '@/app/assets/location.svg'
-// import map from '@/app/assets/map.svg'
-// import crossIcon from '@/app/assets/close.svg' // Assume you have a cross icon asset
-
-// const FilterBar = () => {
-//   const [filters, setFilters] = useState({
-//     location: '',
-//     purpose: 'buy',
-//     type: 'type',
-//     price: 'low',
-//     area: 'small',
-//     rooms: '1'
-//   })
-
-//   const handleInputChange = e => {
-//     const { name, value } = e.target
-//     setFilters(prevFilters => ({
-//       ...prevFilters,
-//       [name]: value
-//     }))
-//   }
-
-//   const removeFilter = name => {
-//     setFilters(prevFilters => ({
-//       ...prevFilters,
-//       [name]: name === 'location' ? '' : name === 'purpose' ? 'buy' : 'type'
-//     }))
-//   }
-
-//   return (
-//     <>
-//       <section className='mt-10 md:mt-14 xl:mt-16 flex flex-col lg:flex-row gap-2 items-center justify-between'>
-//         <div className='relative flex items-center w-full '>
-//           <span className='absolute left-3 text-muted'>
-//             <img src={location.src} alt='Location' />
-//           </span>
-//           <input
-//             type='text'
-//             name='location'
-//             placeholder='State, City or Postal Code'
-//             value={filters.location}
-//             onChange={handleInputChange}
-//             className='pl-10 pr-4 py-2 w-full rounded-[4px] border border-muted focus:border-primary focus:ring-primary focus:ring-1 text-base placeholder-secondary'
-//           />
-//         </div>
-
-//         <div className='flex w-full gap-2 flex-col sm:flex-row'>
-//           <div className='flex w-full gap-2'>
-//             <select
-//               name='purpose'
-//               value={filters.purpose}
-//               onChange={handleInputChange}
-//               className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full lg:w-[132px]'
-//             >
-//               <option value='buy'>Buy</option>
-//               <option value='rent'>Rent</option>
-//             </select>
-
-//             <select
-//               name='type'
-//               value={filters.type}
-//               onChange={handleInputChange}
-//               className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full lg:w-[132px]'
-//             >
-//               <option value='house'>House</option>
-//               <option value='apartment'>Apartment</option>
-//               <option value='land'>Land</option>
-//             </select>
-
-//             <select
-//               name='price'
-//               value={filters.price}
-//               onChange={handleInputChange}
-//               className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full lg:w-[132px]'
-//             >
-//               <option value='low'>Low to High</option>
-//               <option value='high'>High to Low</option>
-//             </select>
-//           </div>
-
-//           <div className='flex w-full gap-2'>
-//             <select
-//               name='area'
-//               value={filters.area}
-//               onChange={handleInputChange}
-//               className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full lg:w-[132px]'
-//             >
-//               <option value='small'>Small to Large</option>
-//               <option value='large'>Large to Small</option>
-//             </select>
-
-//             <select
-//               name='rooms'
-//               value={filters.rooms}
-//               onChange={handleInputChange}
-//               className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full lg:w-[132px]'
-//             >
-//               <option value='1'>1 Room</option>
-//               <option value='2'>2 Rooms</option>
-//               <option value='3'>3 Rooms</option>
-//               <option value='4+'>4+ Rooms</option>
-//             </select>
-
-//             <img
-//               src={map.src}
-//               className='p-[7px] rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary '
-//               alt='Map'
-//             />
-//           </div>
-//         </div>
-//       </section>
-//       {/* Render selected filters as tags */}
-//       <div className='flex flex-wrap gap-2 mt-2 lg:mt-0'>
-//         {filters.location && (
-//           <div className='flex items-center border-secondary border-2 text-secondary  text-text rounded-[4px] px-2 py-1'>
-//             {filters.location}
-//             <img
-//               src={crossIcon.src}
-//               alt='Remove'
-//               className='ml-1 cursor-pointer'
-//               onClick={() => removeFilter('location')}
-//             />
-//           </div>
-//         )}
-//         {filters.purpose && (
-//           <div className='flex items-center border-secondary border-2 text-secondary  text-text rounded-[4px] px-2 py-1'>
-//             {filters.purpose}
-//             <img
-//               src={crossIcon.src}
-//               alt='Remove'
-//               className='ml-1 cursor-pointer'
-//               onClick={() => removeFilter('purpose')}
-//             />
-//           </div>
-//         )}
-//         {filters.type && (
-//           <div className='flex items-center border-secondary border-2 text-secondary  text-text rounded-[4px] px-2 py-1'>
-//             {filters.type}
-//             <img
-//               src={crossIcon.src}
-//               alt='Remove'
-//               className='ml-1 cursor-pointer'
-//               onClick={() => removeFilter('type')}
-//             />
-//           </div>
-//         )}
-//         {filters.price && (
-//           <div className='flex items-center border-secondary border-2 text-secondary  text-text rounded-[4px] px-2 py-1'>
-//             {filters.price}
-//             <img
-//               src={crossIcon.src}
-//               alt='Remove'
-//               className='ml-1 cursor-pointer'
-//               onClick={() => removeFilter('price')}
-//             />
-//           </div>
-//         )}
-//         {filters.area && (
-//           <div className='flex items-center border-secondary border-2 text-secondary  text-text rounded-[4px] px-2 py-1'>
-//             {filters.area}
-//             <img
-//               src={crossIcon.src}
-//               alt='Remove'
-//               className='ml-1 cursor-pointer'
-//               onClick={() => removeFilter('area')}
-//             />
-//           </div>
-//         )}
-//         {filters.rooms && (
-//           <div className='flex items-center border-secondary border-2 text-secondary  text-text rounded-[4px] px-2 py-1'>
-//             {filters.rooms}
-//             <img
-//               src={crossIcon.src}
-//               alt='Remove'
-//               className='ml-1 cursor-pointer'
-//               onClick={() => removeFilter('rooms')}
-//             />
-//           </div>
-//         )}
-//       </div>
-//     </>
-//   )
-// }
-
-// export default FilterBar
-
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import location from '@/app/assets/location.svg'
 import map from '@/app/assets/map.svg'
-import crossIcon from '@/app/assets/close.svg' // Assume you have a cross icon asset
+import crossIcon from '@/app/assets/close.svg'
+import Image from 'next/image'
+import { debounce } from 'lodash'
+import { EstateFilters } from '@/app/lib/definations'
+
+const FilterSelect = ({
+  name,
+  value,
+  options,
+  onChange,
+  placeholder
+}: {
+  name: string
+  value: string
+  options: { label: string; value: string }[]
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+  placeholder: string
+}) => (
+  <>
+    <label htmlFor={name} className='sr-only'>
+      {name}
+    </label>
+    <select
+      id={name}
+      name={name}
+      value={value}
+      onChange={onChange}
+      className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full lg:w-[132px]'
+    >
+      <option value='' disabled hidden>
+        {placeholder}
+      </option>
+      {options.map(option => (
+        <option key={option.value} value={option.value}>
+          {option.label}
+        </option>
+      ))}
+    </select>
+  </>
+)
+
+const AppliedFilterTag = ({
+  label,
+  value,
+  onRemove
+}: {
+  label: string
+  value: string
+  onRemove: () => void
+}) => (
+  <div className='flex items-center border-secondary border-2 text-secondary rounded-[4px] px-2 py-1'>
+    {label} {value}
+    <Image
+      width={24}
+      height={24}
+      src={crossIcon.src}
+      alt='Remove'
+      className='ml-1 cursor-pointer'
+      onClick={onRemove}
+    />
+  </div>
+)
 
 const FilterBar = () => {
-  const [filters, setFilters] = useState({
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const [filters, setFilters] = useState<EstateFilters>({
     location: '',
-    purpose: '', // Set to empty to allow selecting 'buy' or 'rent'
-    type: '', // Set to empty to allow selecting a type
-    price: '', // Set to empty to allow selecting a price
-    area: '', // Set to empty to allow selecting an area
-    rooms: '' // Set to empty to allow selecting rooms
+    purpose: '',
+    type: '',
+    price: '',
+    area: '',
+    rooms: ''
   })
 
-  const handleInputChange = e => {
+  const updateQueryParams = useCallback(
+    debounce((updatedFilters: EstateFilters) => {
+      const params = new URLSearchParams(window.location.search)
+
+      Object.keys(updatedFilters).forEach(key => {
+        if (updatedFilters[key]) {
+          params.set(key, updatedFilters[key]!)
+        } else {
+          params.delete(key)
+        }
+      })
+      router.push(`${pathname}?${params.toString()}`)
+    }, 300),
+    [router, pathname]
+  )
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target
-    setFilters(prevFilters => ({
-      ...prevFilters,
-      [name]: value
-    }))
+    const newFilters = { ...filters, [name]: value }
+    setFilters(newFilters)
+    updateQueryParams(newFilters)
   }
 
-  const removeFilter = name => {
-    setFilters(prevFilters => ({
-      ...prevFilters,
-      [name]: ''
-    }))
+  const removeFilter = (name: string) => {
+    const newFilters = { ...filters, [name]: '' }
+    setFilters(newFilters)
+    updateQueryParams(newFilters)
   }
+
+  useEffect(() => {
+    const currentParams = Object.fromEntries(searchParams.entries())
+    setFilters({
+      location: currentParams.location || '',
+      purpose: currentParams.purpose || '',
+      type: currentParams.type || '',
+      price: currentParams.price || '',
+      area: currentParams.area || '',
+      rooms: currentParams.rooms || ''
+    })
+  }, [searchParams])
+
+  const purposeOptions = [
+    { label: 'Buy', value: 'buy' },
+    { label: 'Rent', value: 'rent' }
+  ]
+  const typeOptions = [
+    { label: 'House', value: 'house' },
+    { label: 'Apartment', value: 'apartment' },
+    { label: 'Land', value: 'land' }
+  ]
+  const priceOptions = [
+    { label: '$0 - $500,000', value: '0-500000' },
+    { label: '$500,001 - $1,000,000', value: '500001-1000000' },
+    { label: '$1,000,001 - $1,500,000', value: '1000001-1500000' },
+    { label: '$1,500,001 - $2,000,000', value: '1500001-2000000' },
+    { label: '$2,000,001 - $2,500,000', value: '2000001-2500000' },
+    { label: '$2,500,001 - $3,000,000', value: '2500001-3000000' },
+    { label: '$3,000,000+', value: '3000001+' }
+  ]
+  const areaOptions = [
+    { label: '0 - 50 sqm.', value: '0-50' },
+    { label: '51 - 100 sqm.', value: '51-100' },
+    { label: '101 - 150 sqm.', value: '101-150' },
+    { label: '151 - 200 sqm.', value: '151-200' },
+    { label: '201 - 250 sqm.', value: '201-250' },
+    { label: '251 - 300 sqm.', value: '251-300' },
+    { label: '300+ sqm.', value: '300+' }
+  ]
+  const roomsOptions = [
+    { label: '1 Room', value: '1' },
+    { label: '2 Rooms', value: '2' },
+    { label: '3 Rooms', value: '3' },
+    { label: '4+ Rooms', value: '4+' }
+  ]
 
   return (
-    <section className='flex flex-col gap-2'>
-      <section className='mt-10 md:mt-14 xl:mt-16 flex flex-col lg:flex-row gap-2 items-center justify-between'>
-        <div className='relative flex items-center w-full'>
+    <section className='flex flex-col gap-2 z-0 '>
+      <section className='mt-12 md:mt-14 xl:mt-16 flex flex-col lg:flex-row gap-2 items-start justify-between'>
+        <div className='relative flex items-center w-full lg:max-w-sm'>
           <span className='absolute left-3 text-muted'>
-            <img src={location.src} alt='Location' />
+            <Image src={location.src} alt='Location' width={20} height={20} />
           </span>
           <input
             type='text'
@@ -413,153 +175,93 @@ const FilterBar = () => {
         </div>
 
         <div className='flex w-full gap-2 flex-col sm:flex-row'>
-          <div className='flex w-full gap-2'>
-            <select
-              name='purpose'
-              value={filters.purpose}
-              onChange={handleInputChange}
-              className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full lg:w-[132px]'
-            >
-              <option value='' disabled>
-                Select Purpose
-              </option>
-              <option value='buy'>Buy</option>
-              <option value='rent'>Rent</option>
-            </select>
-
-            <select
-              name='type'
-              value={filters.type}
-              onChange={handleInputChange}
-              className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full lg:w-[132px]'
-            >
-              <option value='' disabled>
-                Select Type
-              </option>
-              <option value='house'>House</option>
-              <option value='apartment'>Apartment</option>
-              <option value='land'>Land</option>
-            </select>
-
-            <select
-              name='price'
-              value={filters.price}
-              onChange={handleInputChange}
-              className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full lg:w-[132px]'
-            >
-              <option value='' disabled>
-                Select Price
-              </option>
-              <option value='low'>Low to High</option>
-              <option value='high'>High to Low</option>
-            </select>
-          </div>
-
-          <div className='flex w-full gap-2'>
-            <select
-              name='area'
-              value={filters.area}
-              onChange={handleInputChange}
-              className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full lg:w-[132px]'
-            >
-              <option value='' disabled>
-                Select Area
-              </option>
-              <option value='small'>Small to Large</option>
-              <option value='large'>Large to Small</option>
-            </select>
-
-            <select
-              name='rooms'
-              value={filters.rooms}
-              onChange={handleInputChange}
-              className='px-3 py-2 rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary w-full lg:w-[132px]'
-            >
-              <option value='' disabled>
-                Select Rooms
-              </option>
-              <option value='1'>1 Room</option>
-              <option value='2'>2 Rooms</option>
-              <option value='3'>3 Rooms</option>
-              <option value='4+'>4+ Rooms</option>
-            </select>
-
-            <img
-              src={map.src}
-              className='p-[7px] rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary'
-              alt='Map'
-            />
-          </div>
+          <FilterSelect
+            name='purpose'
+            value={filters.purpose || ''}
+            options={purposeOptions}
+            onChange={handleInputChange}
+            placeholder='Purpose'
+          />
+          <FilterSelect
+            name='type'
+            value={filters.type || ''}
+            options={typeOptions}
+            onChange={handleInputChange}
+            placeholder='Type'
+          />
+          <FilterSelect
+            name='price'
+            value={filters.price || ''}
+            options={priceOptions}
+            onChange={handleInputChange}
+            placeholder='Price'
+          />
+          <FilterSelect
+            name='area'
+            value={filters.area || ''}
+            options={areaOptions}
+            onChange={handleInputChange}
+            placeholder='Area'
+          />
+          <FilterSelect
+            name='rooms'
+            value={filters.rooms || ''}
+            options={roomsOptions}
+            onChange={handleInputChange}
+            placeholder='Rooms'
+          />
+          <Image
+            width={48}
+            height={48}
+            src={map.src}
+            className='p-[7px] rounded-[4px] border border-muted text-base text-text focus:outline-none focus:ring-2 focus:ring-primary'
+            alt='Map'
+          />
         </div>
       </section>
 
-      {/* Render selected filters as tags */}
       <div className='flex flex-wrap gap-2 mt-2 lg:mt-0'>
         {filters.location && (
-          <div className='flex items-center border-secondary border-2 text-secondary  text-text rounded-[4px] px-2 py-1'>
-            {filters.location}
-            <img
-              src={crossIcon.src}
-              alt='Remove'
-              className='ml-1 cursor-pointer'
-              onClick={() => removeFilter('location')}
-            />
-          </div>
+          <AppliedFilterTag
+            label='Location:'
+            value={filters.location}
+            onRemove={() => removeFilter('location')}
+          />
         )}
         {filters.purpose && (
-          <div className='flex items-center border-secondary border-2 text-secondary  text-text rounded-[4px] px-2 py-1'>
-            {filters.purpose}
-            <img
-              src={crossIcon.src}
-              alt='Remove'
-              className='ml-1 cursor-pointer'
-              onClick={() => removeFilter('purpose')}
-            />
-          </div>
+          <AppliedFilterTag
+            label='Purpose:'
+            value={filters.purpose}
+            onRemove={() => removeFilter('purpose')}
+          />
         )}
         {filters.type && (
-          <div className='flex items-center border-secondary border-2 text-secondary  text-text rounded-[4px] px-2 py-1'>
-            {filters.type}
-            <img
-              src={crossIcon.src}
-              alt='Remove'
-              className='ml-1 cursor-pointer'
-              onClick={() => removeFilter('type')}
-            />
-          </div>
+          <AppliedFilterTag
+            label='Type:'
+            value={filters.type}
+            onRemove={() => removeFilter('type')}
+          />
         )}
         {filters.price && (
-          <div className='flex items-center border-secondary border-2 text-secondary  text-text rounded-[4px] px-2 py-1'>
-            {filters.price}
-            <img
-              src={crossIcon.src}
-              alt='Remove'
-              className='ml-1 cursor-pointer'
-              onClick={() => removeFilter('price')}
-            />
-          </div>
+          <AppliedFilterTag
+            label='Price:'
+            value={filters.price}
+            onRemove={() => removeFilter('price')}
+          />
         )}
         {filters.area && (
-          <div className='flex items-center border-secondary border-2 text-secondary  text-text rounded-[4px] px-2 py-1'>
-            {filters.area}
-            <img
-              src={crossIcon.src}
-              alt='Remove'
-              className='ml-1 cursor-pointer'
-              onClick={() => removeFilter('area')}
-            />
-          </div>
+          <AppliedFilterTag
+            label='Area:'
+            value={filters.area}
+            onRemove={() => removeFilter('area')}
+          />
         )}
         {filters.rooms && (
-          <div className='flex items-center border-secondary border-2 text-secondary  text-text rounded-[4px] px-2 py-1'>
-            {filters.rooms}
-            <img
-              src={crossIcon.src}
-              alt='Remove'
-              className='ml-1 cursor-pointer'
-              onClick={() => removeFilter('rooms')}
-            />
-          </div>
+          <AppliedFilterTag
+            label='Rooms:'
+            value={filters.rooms}
+            onRemove={() => removeFilter('rooms')}
+          />
         )}
       </div>
     </section>
