@@ -80,7 +80,7 @@ const Footer = () => {
           </div>
         </div>
         <hr className='my-8' />
-        <div className='text-center flex flex-col justify-between text-secondary text-sm md:flex-row'>
+        <div className='text-center flex flex-col items-center justify-between text-secondary text-sm md:flex-row'>
           <p>&copy; 2023 property search. All rights reserved.</p>
           <ul className='flex gap-2'>
             <li>
