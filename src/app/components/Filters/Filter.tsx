@@ -110,6 +110,16 @@ const FilterBar = () => {
     setFilters(newFilters)
     updateQueryParams(newFilters)
   }
+  const removeAllFilters = () => {
+    const clearedFilters = Object.keys(filters).reduce((acc, key) => {
+      acc[key] = ''
+      return acc
+    }, {} as Record<string, string>)
+
+    setFilters(clearedFilters)
+    console.log(clearedFilters)
+    updateQueryParams(clearedFilters)
+  }
 
   useEffect(() => {
     const currentParams = Object.fromEntries(searchParams.entries())
@@ -159,7 +169,7 @@ const FilterBar = () => {
 
   return (
     <section className='flex flex-col gap-2 z-0 '>
-      <section className='mt-12 md:mt-14 xl:mt-16 flex flex-col lg:flex-row gap-2 items-start justify-between'>
+      <section className='mt-14 sm:mt-16 flex flex-col lg:flex-row gap-2 items-start justify-between'>
         <div className='relative flex items-center w-full lg:max-w-sm'>
           <span className='absolute left-3 text-muted'>
             <Image src={location.src} alt='Location' width={20} height={20} />
@@ -170,7 +180,7 @@ const FilterBar = () => {
             placeholder='State, City or Postal Code'
             value={filters.location}
             onChange={handleInputChange}
-            className='pl-10 pr-4 py-2 w-full rounded-[4px] border border-muted focus:border-primary focus:ring-primary focus:ring-1 text-base placeholder-secondary'
+            className='pl-10 py-[11px] w-full rounded-[4px] border border-muted focus:border-primary focus:ring-primary focus:ring-1 text-base placeholder-secondary'
           />
         </div>
 
@@ -262,6 +272,9 @@ const FilterBar = () => {
             value={filters.rooms}
             onRemove={() => removeFilter('rooms')}
           />
+        )}
+        {Object.values(filters).some(value => value) && (
+          <button onClick={removeAllFilters}>Clear all</button>
         )}
       </div>
     </section>

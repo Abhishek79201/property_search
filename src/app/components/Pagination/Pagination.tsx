@@ -18,10 +18,16 @@ const Pagination = ({
   const [page, setPage] = useState(currentPage)
 
   useEffect(() => {
-    if (page !== currentPage) {
+    if (currentPage < 1 || !totalPages) {
+      setPage(1)
+      updatePageQueryParams(1)
+    } else if (currentPage > totalPages) {
+      setPage(totalPages)
+      updatePageQueryParams(totalPages)
+    } else if (page !== currentPage) {
       setPage(currentPage)
     }
-  }, [currentPage, page])
+  }, [currentPage, page, totalPages])
 
   const updatePageQueryParams = useCallback(
     debounce((newPage: number) => {
@@ -33,7 +39,14 @@ const Pagination = ({
   )
 
   const handlePageChange = (newPage: number) => {
-    if (newPage < 1 || newPage > totalPages) return
+    // Prevent setting the page to 0 or less
+    if (newPage < 1) {
+      setPage(1)
+      updatePageQueryParams(1)
+      return
+    }
+    // Prevent setting the page to a number greater than total pages
+    if (newPage > totalPages) return
     setPage(newPage)
     updatePageQueryParams(newPage)
   }
@@ -61,7 +74,7 @@ const Pagination = ({
             key={pageNum}
             className={`px-3 py-1 rounded-md border ${
               page === pageNum
-                ? 'bg-dark text-white'
+                ? 'bg-dark text-white  hover:bg-secondary'
                 : 'border-primary font-medium hover:border-secondary text-primary hover:text-secondary'
             }`}
             onClick={() => handlePageChange(pageNum)}

@@ -21,11 +21,13 @@ export default async function Home ({ searchParams }: HomeProps) {
   const res = await fetch(
     `${process.env.NEXT_BACKEND_URL!}/estates?${queryParams}`,
     {
-      next: { revalidate: 3600 }
+      next: { revalidate: 10 }
     }
   )
-
-  const data = await res.json()
+  let data
+  if (res.ok) {
+    data = await res?.json()
+  }
   return (
     <section className='container'>
       <FilterBar />

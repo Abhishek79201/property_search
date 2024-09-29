@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Property Search Application
+
+A web application that allows users to search for properties using various filters. It is built with **Next** on the frontend and offers two different backends: one using **Next.js API routes** and another using a **Node.js API backend**.
+
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+
+## Features
+
+- Property search with filters such as area, price, and property type.
+- Responsive user interface built with React.
+- Two backend options: Next.js API routes or Node.js API.
+- Same frontend functionality, but different backends behind the scenes.
+
+## Technologies Used
+
+- **Frontend**: React, Next.js
+- **Backend**:
+  - Option 1: Next.js API routes
+  - Option 2: Node.js with Express.js
+- **Database**: MongoDB
+- **Hosting**: Vercel (Frontend), Render.com (Node.js Backend)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (v14 or later)
+- MongoDB
+- Git
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository**:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone https://github.com/Abhishek79201/property_search.git
+   cd property_search
+   ```
 
-## Learn More
+2. **Set up environment variables**:
+   Create an `.env` file with the following:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   MONGODB_URI = mongodb+srv://abhishek:Abhi%40290@dotodo.newsp.mongodb.net/?retryWrites=true&w=majority&appName=dotodo
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   For the backend, use the appropriate URL:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   - **Next.js API routes**:
 
-## Deploy on Vercel
+     ```bash
+     NEXT_BACKEND_URL = https://property-infynno.vercel.app/api
+     ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   - **Node.js backend**:
+     ```bash
+     NEXT_BACKEND_URL = https://property-search-backend.onrender.com/api
+     ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Install dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+4. **Run the application**:
+
+   ```bash
+   npm run dev
+   ```
+
+   The app will be accessible at `http://localhost:3000`.
+
+## Usage
+
+This application is hosted on two different websites, both functioning the same from the user's perspective but calling different backends behind the scenes:
+
+- **Using Next.js API routes**:  
+  [https://property-infynno.vercel.app/](https://property-infynno.vercel.app/)
+
+  In this version, the backend API is handled directly by the Next.js API routes.
+
+- **Using Node.js API backend**:  
+  [https://propertysearchnodebackend.vercel.app/](https://propertysearchnodebackend.vercel.app/)
+
+  In this version, the backend API is handled by a Node.js server hosted separately on Render.
+
+Both sites offer the same frontend experience but demonstrate how different backends can be used to handle data retrieval and processing.
+
+## License
+
+This project is licensed under the MIT License.

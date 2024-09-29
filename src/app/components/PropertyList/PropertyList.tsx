@@ -9,6 +9,8 @@ export interface IEstate {
   type: string
   area: number
   rooms: number
+  city: string
+  country: string
   description: string
 }
 
@@ -25,10 +27,10 @@ interface PropertyListProps {
 
 const PropertyList: React.FC<PropertyListProps> = ({ data }) => {
   return (
-    <div className='mt-6 min-h-screen'>
-      {data.estates.length > 0 ? (
+    <div className='mt-6 min-h-md'>
+      {data?.estates?.length > 0 ? (
         <ul className='grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
-          {data.estates.map(property => (
+          {data?.estates?.map(property => (
             <>
               {property.id ? (
                 <li
@@ -49,8 +51,8 @@ const PropertyList: React.FC<PropertyListProps> = ({ data }) => {
         </div>
       )}
       <Pagination
-        totalPages={data.pagination.totalPages}
-        currentPage={data.pagination.page}
+        totalPages={data?.pagination?.totalPages}
+        currentPage={data?.pagination?.page}
       />
     </div>
   )

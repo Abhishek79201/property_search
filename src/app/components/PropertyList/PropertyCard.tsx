@@ -36,7 +36,7 @@ const PropertyCard: React.FC<PropertyListProps> = ({ data }) => {
   return (
     <div
       tabIndex={0}
-      className='relative max-w-sm max-h-md rounded overflow-hidden  bg-[#f0f2f3] hover:bg-muted focus:outline-2 focus:outline-offset-0 focus:outline-primary outline-none'
+      className='relative max-w-[380px] max-h-[428px] rounded overflow-hidden  bg-[#f0f2f3] hover:bg-muted focus:outline-2 focus:outline-offset-0 focus:outline-primary outline-none'
     >
       <div
         onClick={toggleFavorite}
@@ -57,15 +57,19 @@ const PropertyCard: React.FC<PropertyListProps> = ({ data }) => {
         alt={data.title}
         priority
       />
-      <div className='p-4 flex flex-col gap-2'>
+      <div className='p-5 flex flex-col gap-3'>
         <h2 className='font-bold text-xl '>{data.title}</h2>
-        <h3 className='body_normal min-h-[48px]'>{data.description}</h3>
-        <p className='body_small'>
-          ID: {data.id}
-          {data.rooms} Bad | {data.area} m²
+        <h3 className='body_normal'>{data.description}</h3>
+        <p>
+          <span className='body_small block'>
+            ID: {data.id} | {data.city} | {data.country}
+          </span>
+          <span className='body_small'>
+            {data.rooms} Bad | {data.area} m² | {data.purpose}
+          </span>
         </p>
         <div className='flex items-center justify-between my-2'>
-          <h4 className='text-dark text-xl '>
+          <h4 className='text-dark text-xl font-medium '>
             {data?.price?.toLocaleString('de-DE', {
               style: 'currency',
               currency: 'EUR'
